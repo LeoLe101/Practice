@@ -1,0 +1,10 @@
+This is the Computer Sciene Fundamental Notes:
+
+-   For Sorting and Searching Algorithms, review the `algo.java` file.
+
+-   For the Mock Interview questions gathered from LeetCode and other
+    website, review the `mock-java.java` file.
+
+-   For the Interview questions from LeetCode and Cracking The Interview book,
+    review the `practice-java` file.
+

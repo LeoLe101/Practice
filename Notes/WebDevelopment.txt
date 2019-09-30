@@ -1,0 +1,27 @@
+Local Storage VS Session Storage VS Cookies
+
+-   Local Storage:
+    1. This storage is supported by many browsers.
+    2. The local storage works the same as a hash-map due to the <Key, Value> pair.
+    3. Providing greater storage capacity (improvement on cookies), available size is 5MB.
+    4. Data is not sent back to the server for every HTTP request - reduce the amount
+       of traffic between Client and Server.
+    5. Data within the local storage will stay available until it is explicitly deleted.
+    6. Changes made will be available for all current and future access to the site.
+    7. Works on the same-origin policy. Data stored will only available on the same origin (PC).
+
+-   Session Storage:
+    1. Similar to Local Storage.
+    2. Changes are only available per window (Tab in browsers). Changes made by the user
+       are saved and available for current page, as well as future visits to the site on the
+       same browser window/tab.
+    3. Exist until the browser window/tab is closed. Once closed, session storage data is deleted.
+       The data is not persistent once the tab is closed.
+    4. The data only available inside the window/tab in which it was set.
+    5. Works on the same-origin policy. Data stored will only available on the same origin (PC).
+
+-   Cookies:
+    1. Cookie expiration time can be set.
+    2. The capacity of storage is only 4KB which is including name, value, expiry date, etc.
+    3. The data is sent back to the server for every HTTP request - increase the amount
+       of traffic between Client and Server.

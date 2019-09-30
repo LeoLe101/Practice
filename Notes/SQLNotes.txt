@@ -1,0 +1,12 @@
+This is the SQL Notes:
+
+Truncate:
+
+Delete:
+
+Add:
+
+Inner Join:
+
+Left Join:
+
