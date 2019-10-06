@@ -1,6 +1,8 @@
 package practicecode;
 
-import java.io.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 // REFERENCES:
 // https://javarevisited.blogspot.com/2019/04/top-20-searching-and-sorting-algorithms-interview-questions.html
@@ -15,8 +17,8 @@ class Algo {
 
     // region REVIEW Binary Search
     /**
-     * Binary search Time complexity: O(Log N)
-     * This search is best used when the array is sorted! Otherwiser we cannot use it.
+     * Binary search Time complexity: O(Log N) This search is best used when the
+     * array is sorted! Otherwiser we cannot use it.
      *
      * This is the algorithm that uses divide and conquer to search for the target
      * number. First: Compare the middle of the array with the target. If it is the
@@ -25,9 +27,9 @@ class Algo {
      * larger than the target, start comparing the right half of the array. Repeat
      * step 1 again
      *
-     * Formula to find the middle index within the array:
-     * 1. ((high - low) / 2) + low <<< good to avoid overflow
-     * 2. (low + high) / 2 <<< might caused overflow because 2 large index numbers
+     * Formula to find the middle index within the array: 1. ((high - low) / 2) +
+     * low <<< good to avoid overflow 2. (low + high) / 2 <<< might caused overflow
+     * because 2 large index numbers
      */
     public int BinarySearchIter(int[] arr, int target) {
         int firstIndex = 0;
@@ -106,15 +108,18 @@ class Algo {
     // endregion
 
     // region REVIEW Level Order Search in a Binary Tree
+    List<List<Integer>> levelOrderTraversal(TreeNode root) {
 
+        return null;
+    }
     // endregion
 
     // region REVIEW Linear Search
     /**
      * Linear Time complexity: O(N)
      *
-     * This algorithm is used to loop through a sorted array and find the target index
-     * If the value is not found, return -1
+     * This algorithm is used to loop through a sorted array and find the target
+     * index If the value is not found, return -1
      */
     public int LinearSearchIter(int[] arr, int target) {
         for (int i = 0; i < arr.length; i++) {
@@ -128,19 +133,20 @@ class Algo {
 
     // Recursion method
     public int LinearSearchRecur(int[] arr, int target) {
-        return LinearSearchRecurHelper(arr, target, 0);
+        return LinearSearchRecurHelper(arr, target, 0, arr.length - 1);
     }
 
-    public int LinearSearchRecurHelper(int[] arr, int target, int currIndex) {
-        if (arr[currIndex] == target) {
-            return currIndex;
-        }
-
-        if () {
-            // If the target is not found in the array, return -1
+    public int LinearSearchRecurHelper(int[] arr, int target, int firstIndex, int lastIndex) {
+        if (firstIndex > lastIndex) {
             return -1;
         }
-        return LinearSearchRecurHelper(arrLength, arr, target);
+        if (arr[firstIndex] == target) {
+            return firstIndex;
+        }
+        if (arr[lastIndex] == target) {
+            return lastIndex;
+        }
+        return LinearSearchRecurHelper(arr, target, firstIndex + 1, lastIndex - 1);
     }
     // endregion
 
@@ -171,11 +177,43 @@ class Sort {
 
     // region REVIEW Bubble Sort
     /**
-     * Bubble Sort Time Complexity O(n) | O(n^2) | O(n^2) Requirements: Explain,
+     * Time Complexity O(n) | O(n^2) | O(n^2) Requirements: Explain,
+     *
+     * Compare each pair of adjacent elements and swapped them if they are not
+     * in sorted order. Here are the steps to be taken:
+     * 1. If the first element is smaller than the second adjacent element, then
+     *    move the pointer to the second adjacent element and start using it for
+     *    the next comparision.
+     * 2. If the first element is bigger than the second adjacent element, then
+     *    swap their location and start compare the current to the next element.
+     * 3. Once the biggest element of the current iteration is at the end of the
+     *    array, start bubbling the rest of the array again with 1 less length.
+     *    As the last elements are already considered as the largest.
+     * 4. Continue doing this until the length reach 0;
+     *
+     * Why it's awful: The time complexity will reach to over O(n^2) if the database
+     * is large. As for the average and worst case, it will be O(n^2) depending on the
+     * number of items/elements in the array.
+     *
      * Implement, why it's awful
      */
-    public void BubbleSort() {
-
+    public void BubbleSort(int[] arr, int length) {
+        boolean swapped = false;
+        for (int i = 0; i < (length - 1); i++) {
+            swapped = false;
+            for (int l = 1; l < (length - i - 1); l++) {
+                if (arr[i] > arr[l]) {
+                    int temp = arr[i];
+                    arr[i] = arr[l];
+                    arr[l] = temp;
+                    swapped = true;
+                }
+            }
+            // If this element is
+            if (!swapped) {
+                break;
+            }
+        }
     }
     // endregion
 
@@ -191,11 +229,83 @@ class Sort {
 
     // region REVIEW Merge Sort
     /**
-     * Merge Sort Time Complexity O(n Log(n)) | O(n Log(n)) | O(n Log(n))
+     * Merge Sort Implementation steps:
+     * 1. Check if the array only has 1 value; if yes, return accordingly
+     * 2. Recursively break the array in half until it cannot be divided any further than that.
+     * 3. Merge the both broken down array together in sorted order.
+     *
+     * Time Complexity O(n Log(n)) | O(n Log(n)) | O(n Log(n))
+     * Space Complexity O(n)
      * Requirements: Implement it, talk space complexity, time complexity
+     *
+     * @param arr    The array to be sort
+     * @param length the length of the array
      */
-    public void MergeSort() {
+    public void MergeSort(int[] arr, int length) {
+        if (length < 2) {
+            return;
+        }
+        // Find middle point to break the array
+        int middleIndex = length / 2;
+        int[] leftArray = new int[middleIndex];
+        int[] rightArray = new int[length - middleIndex];
 
+        // Insert all available element from the left to middle into LeftArray
+        for (int i = 0; i < leftArray.length; i++) {
+            leftArray[i] = arr[i];
+        }
+
+        // Insert all available element from the middle to the end into RightArray
+        for (int i = middleIndex; i < rightArray.length; i++) {
+            rightArray[i] = arr[i];
+        }
+
+        // After breaking down 2 arrays from original array,
+        // continue to break down the rest on both left
+        // and right side until it is not able to break down anymore
+        MergeSort(leftArray, leftArray.length);
+        MergeSort(rightArray, rightArray.length);
+
+        // After completely broken down, merge them back
+        merge(arr, leftArray, rightArray, leftArray.length, rightArray.length);
+    }
+
+    /**
+     * Merge function for the merge sort. This function will sort both left and
+     * right array back into the 1 array
+     *
+     * @param arr            The original Array
+     * @param length         The original Array length
+     * @param leftArr        The Array that is broken down
+     * @param rightArr       The Array that is broken down
+     * @param leftArrLength  Left Array Length
+     * @param rightArrLength Right Array Length
+     */
+    public void merge(int[] arr, int[] leftArr, int[] rightArr, int leftArrLength, int rightArrLength) {
+        int i = 0;
+        int l = 0;
+        int k = 0;
+
+        // Check both arrays, the smaller element from each array will be added
+        // into the original array. Then iterate through the both Array with 2 ptrs
+        while (i < leftArrLength && l < rightArrLength) {
+            if (leftArr[i] < rightArr[l]) {
+                arr[k++] = leftArr[i++];
+            } else {
+                arr[k++] = rightArr[l++];
+            }
+        }
+
+        // After the comparison end, if one of the array still remain,
+        // add them all to the end of the original array.
+        // At this point, 1 of the array is considered to be iterated through already.
+        while (i < leftArrLength) {
+            arr[k++] = leftArr[i++];
+        }
+
+        while (l < rightArrLength) {
+            arr[k++] = rightArr[l++];
+        }
     }
     // endregion
 
@@ -230,39 +340,6 @@ class Sort {
     // endregion
 }
 
-class DataStructure {
-
-    // ================================================================================
-    // IMPLEMENT DATA STRUCTURE
-    // ================================================================================
-
-    // region REVIEW Binary Search Tree
-
-    // endregion
-
-    // region REVIEW Max Heap
-    /**
-     * Max Heap is a complete/balanced binary tree in which the value in each
-     * internal node is greater than or equal to the values in the children of that
-     * node.
-     *
-     * The Root element will always be greater than or equal to either of its child
-     * element
-     */
-    // endregion
-
-    // region REVIEW Min Heap
-    /**
-     * Min Heap is a complete/balanced binary tree in which the value in each
-     * internal node is smaller than or equalt to the valudes in the children of
-     * that node.
-     *
-     * The Root element will always be less than or equal to either of its child
-     * element
-     */
-    // endregion
-}
-
 class TreeTraversal {
 
     // ================================================================================
@@ -270,16 +347,85 @@ class TreeTraversal {
     // ================================================================================
 
     // region REVIEW In-order Traversal
-
+    /**
+     * In order traverse through the tree with the order: Left - Visit - Right Time
+     * Complexity O(n)
+     *
+     * @param node Root of the tree to be traversed
+     */
+    public void InOrderTraversal(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        InOrderTraversal(node.left);
+        System.out.println(node.val);
+        InOrderTraversal(node.right);
+    }
     // endregion
 
     // region REVIEW Post-order Traversal
-
+    /**
+     * Post order traverse through the tree with the order: Left - Right - Visit
+     * Time Complexity O(n)
+     *
+     * @param node Root of the tree to be traversed
+     */
+    public void PostOrderTraversal(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        PostOrderTraversal(node.left);
+        PostOrderTraversal(node.right);
+        System.out.println(node.val);
+    }
     // endregion
 
     // region REVIEW Pre-order Traversal
-
+    /**
+     * Pre order traverse through the tree with the order: Visit - Left - Right Time
+     * Complexity O(n)
+     *
+     * @param node Root of the tree to be traversed
+     */
+    public void PreOrderTraversal(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(node.val);
+        PreOrderTraversal(node.left);
+        PreOrderTraversal(node.right);
+    }
     // endregion
 
+    // region REVIEW Level-order Traversal
+    /**
+     * Level order traverse through the tree thru level (Breadth First) Time
+     * Complexity O(n)
+     *
+     * This implementation use the Queue Data Structure to hold the next child nodes
+     * of current node. The queue will poll the element at the top of the queue in a
+     * FIFO manner. This will help the traverse to be on the same level without
+     * moving downward and recur back up.
+     *
+     * @param node Root of the tree to be traversed
+     */
+    public void LevelOrderTraversalQueue(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(node);
 
+        while (!queue.isEmpty()) {
+            TreeNode temp = queue.poll();
+            System.out.println(temp.val); // Do something with the data here
+            if (temp.left != null) {
+                queue.add(temp.left);
+            }
+            if (temp.right != null) {
+                queue.add(temp.right);
+            }
+        }
+    }
+    // endregion
 }

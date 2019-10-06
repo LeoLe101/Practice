@@ -8,3 +8,34 @@ This is the Computer Sciene Fundamental Notes:
 -   For the Interview questions from LeetCode and Cracking The Interview book,
     review the `practice-java` file.
 
+
+
+===============================================================================
+DATA STRUCTURE
+===============================================================================
+Interfaces in Java and cannot be initialized:
+- Set<E>
+    Implements/Initialized:
+    + HashSet<E>
+    + LinkedHashSet<E>
+    + EnumSet<E>
+
+- Map<K,V>
+    Implements/Initialized:
+    + HashTable<K,V>
+    + HashMap<K,V>
+        ~ LinkedHashMap<K,V>
+    + WeakHashMap<K,V>
+    + IdentityHashMap<K,V>
+    + EnumMap<K,V>
+
+- Queue<E>
+    Implements/Initialized:
+    + LinkedList<E>
+    + PriorityQueue<E>
+
+- List<E>
+    Implements/Initialized:
+    + LinkedList<E>
+    + ArrayList<E>
+    + Vector<E>

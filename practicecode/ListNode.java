@@ -1,10 +1,10 @@
 package practicecode;
 
-// List Node class for the linked list problems
-class ListNode {
+public class ListNode {
     int val;
     ListNode next;
 
+    // Constructor
     ListNode(int x) {
         val = x;
     }
