@@ -248,6 +248,17 @@ public class Practice {
     }
 
     /**
+     * Re-order a list by reconnecting the Node from the end of the list
+     * into the second node next to the root node (do this in-place).
+     *
+     * ex: 1 > 2 > 3 > 4     ---> Re-order ---> 1 > 4 > 2 > 3
+     * ex: 1 > 2 > 3 > 4 > 5 ---> Re-order ---> 1 > 5 > 2 > 3 > 4
+     */
+    public void reorderList(ListNode head) {
+
+    }
+
+    /**
      * Merge Sorted Array https://leetcode.com/problems/merge-sorted-array/
      *
      * Given 2 sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one

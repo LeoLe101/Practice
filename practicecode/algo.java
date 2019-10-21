@@ -3,6 +3,7 @@ package practicecode;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 // REFERENCES:
 // https://javarevisited.blogspot.com/2019/04/top-20-searching-and-sorting-algorithms-interview-questions.html
@@ -88,22 +89,6 @@ class Algo {
             return BinarySearchRecurHelper(firstIndex, middleIndex - 1, arr, target);
         }
         return -1; // Return -1 if the target is not in the array
-    }
-    // endregion
-
-    // region REVIEW Depth First Search
-    /**
-     * Depth First Search Time complexity: O(Log N)
-     *
-     */
-    public void DepthFirstSearch() {
-
-    }
-    // endregion
-
-    // region REVIEW Breath First Search
-    public void BreathFirstSearch() {
-
     }
     // endregion
 
@@ -361,6 +346,42 @@ class TreeTraversal {
         System.out.println(node.val);
         InOrderTraversal(node.right);
     }
+
+    /**
+     * Implement InOrder DFS traversal using Stack
+     *
+     * Push the Root node to Stack.
+     *
+     * While Stack is not Empty, push all left child to stack until at
+     * the leftmost child.
+     *
+     * Visit this node, Do logic here
+     *
+     * Push the right child to stack
+     */
+     public void InOrderTraversalIter(TreeNode node) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(node);
+        TreeNode currentNode = node;
+        // Traverse through the Stack until its all pop()
+        while(!stack.isEmpty()) {
+            while (currentNode.left != null) {
+                currentNode = node.left;
+                stack.add(currentNode.left);
+            }
+
+            // Go back to parent since current node is Null
+            currentNode = stack.pop();
+
+            // Do Logic to this node here
+            System.out.println("Current node: " + currentNode);
+
+            if (currentNode.right != null) {
+                currentNode = currentNode.right;
+                stack.push(currentNode);
+            }
+        }
+    }
     // endregion
 
     // region REVIEW Post-order Traversal
@@ -428,4 +449,11 @@ class TreeTraversal {
         }
     }
     // endregion
+}
+
+/**
+ * DP is a method of solving problems by breaking them down into similar subproblems
+ */
+class DynamicProgramming {
+
 }

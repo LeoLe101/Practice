@@ -2,6 +2,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution {
+    // #region Reverse a String
+    /**
+     * Reverse a String with 2 pointers, 1 at the start
+     * and the other at the end of the array.
+     * Constantly swapping the value of these elements.
+     *
+     * https://leetcode.com/problems/reverse-string/
+     *
+     * @param s array of character which contains all string char
+     */
+    public void reverseString(char[] s) {
+        int start = 0;
+        int end = s.length - 1;
+        while (start < end && start != end) {
+            char temp = s[start];
+            s[start] = s[end];
+            s[end] = temp;
+            start++;
+            end--;
+        }
+    }
+    // #endregion
+
 
     // #region Reverse LL (Both Iter and Recur)
     public ListNode reverseLLIter(ListNode head) {
@@ -68,10 +91,10 @@ public class Solution {
     /**
      * Given a string, determine if it is a palindrome, considering only
      * alphanumeric characters and ignoring cases.
-     * 
+     *
      * Note: For the purpose of this problem, we define empty string as valid
      * palindrome.
-     * 
+     *
      * -----> this method might takes lots of time when the string is freaking big
      * (500 chars in a string)
      */
@@ -132,7 +155,7 @@ public class Solution {
     // #region 2. Add Two Numbers -- Leetcode Medium --
     /**
      * Definition for singly-linked list.
-     * 
+     *
      * public class ListNode { int val; ListNode next; ListNode(int x) { val = x; }
      * }
      */
@@ -174,7 +197,7 @@ public class Solution {
 
     // #region 46. Permutations -- Leetcode Medium --
     /**
-     * https://leetcode.com/problems/permutations/ 
+     * https://leetcode.com/problems/permutations/
      * Given a collection of distinct
      * integers, return all possible permutations.
      */
