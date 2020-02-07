@@ -218,4 +218,23 @@ class Mock {
         }
         return (int) result;
     }
+
+    public int[] TwoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int compliment = target - nums[i];
+
+            // Check if the map has this compliment or not
+            if (map.containsKey(compliment)) {
+                return new int[] { map.get(compliment), i };
+            } else {
+                map.put(nums[i], i);
+            }
+
+        }
+
+        return new int[] {};
+    }
+
 }
