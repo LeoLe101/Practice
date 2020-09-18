@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * TwoSum
  */
-public class TwoSum {
+public class AlgoArrays {
 
     // This is not optimized due to Arrays.sort is O(nLogn)
     public static int[] solution1(int[] array, int targetSum) {
