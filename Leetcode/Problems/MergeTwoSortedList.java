@@ -19,33 +19,36 @@ class ListNode {
 
 public class MergeTwoSortedList {
 
-    public ListNode MergeTwoSortedList(ListNode l1, ListNode l2) {
+    public ListNode mergeTwoSortedList(ListNode l1, ListNode l2) {
 
-        ListNode temp = l1.val < l2.val ? l1 : l2;
-        ListNode ptr1 = l1.val < l2.val ? l1.next : l1;
-        ListNode ptr2 = l1.val < l2.val ? l2 : l2.next;
-        ListNode result = temp;
+        ListNode ptr1 = l1;
+        ListNode ptr2 = l2;
+        ListNode result = new ListNode(-1);
+        ListNode temp = result;
 
         while (ptr1 != null && ptr2 != null) {
             if (ptr1.val <= ptr2.val) {
-                result.next = ptr1;
+                temp.next = ptr1;
                 ptr1 = ptr1.next;
             } else {
-                result.next = ptr2;
+                temp.next = ptr2;
                 ptr2 = ptr2.next;
             }
+            temp = temp.next;
         }
 
         while (ptr1 != null) {
-            result.next = ptr1;
+            temp.next = ptr1;
+            temp = temp.next;
             ptr1 = ptr1.next;
         }
         while (ptr2 != null) {
-            result.next = ptr2;
+            temp.next = ptr2;
+            temp = temp.next;
             ptr2 = ptr2.next;
         }
 
-        return temp;
+        return result.next;
     }
 
 }
