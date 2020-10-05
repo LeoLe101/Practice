@@ -1,3 +1,6 @@
+import java.util.Map;
+import java.util.PriorityQueue;
+
 public class MiniDomino {
 
     // Son Tran's version

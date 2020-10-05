@@ -1,9 +1,3 @@
-import java.util.*;
-
-/**
- * 
- * TeemoAttack495
- */
 public class TeemoAttack495 {
 
     public int findPoisonedDuration(int[] timeSeries, int duration) {

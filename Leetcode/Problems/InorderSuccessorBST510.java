@@ -1,15 +1,4 @@
-import java.util.*;
-
-// Definition for a Node.
-class Node {
-    public int val;
-    public Node left;
-    public Node right;
-    public Node parent;
-};
-
-public class InorderSuccessorBST2 {
-
+public class InorderSuccessorBST510 {
     public Node inorderSuccessor(Node node) {
         if (node.right != null)
             return TraverseDown(node.right);
@@ -34,5 +23,4 @@ public class InorderSuccessorBST2 {
         else
             return null;
     }
-
 }
