@@ -17,7 +17,7 @@ public class ListNode {
     }
 }
 
-public class ReverseLL {
+public class ReverseLL206 {
 
     // unoptimized
     public ListNode reverseList(ListNode head) {
