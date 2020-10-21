@@ -26,7 +26,7 @@ public class BinarySearch704 {
         return result;
     }
 
-    // Recursion Version Space (1) Time (Log N)
+    // Recursion Version Space (N) with N is the number of recursive call Time (Log N)
     public int search(int[] nums, int target) {
         return searchHelper(nums, target, 0, nums.length - 1);
     }
