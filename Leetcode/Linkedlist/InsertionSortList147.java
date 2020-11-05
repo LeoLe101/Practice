@@ -11,7 +11,7 @@ public class InsertionSortList147 {
 
         // Loop and check each single node
         while (head != null) {
-            
+
             // Reset Prev and Next nodes
             prevNode = result;
             nextNode = result.next;
