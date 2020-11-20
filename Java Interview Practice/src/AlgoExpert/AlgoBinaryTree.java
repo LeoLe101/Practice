@@ -23,6 +23,7 @@ public class AlgoBinaryTree {
     }
 
     // #region Branch Sum
+
     // Time (N) - Space (N) due to recursion stack
     public static List<Integer> branchSums(BinaryTree root) {
         ArrayList<Integer> arr = new ArrayList<Integer>();
@@ -45,9 +46,11 @@ public class AlgoBinaryTree {
             arr.add(sum);
         return arr;
     }
+
     // #endregion
 
     // #region Node Depths
+
     // Recursion version Time (N) - Space (h) with H is the height of Tree
     // N is the number of Node in Tree
     public static int nodeDepths(BinaryTree root) {
@@ -63,9 +66,11 @@ public class AlgoBinaryTree {
         int rightHeight = helperNodeDepths(currNode.right, sum + 1);
         return sum + leftHeight + rightHeight;
     }
+
     // #endregion
 
     // #region Invert Binary Tree
+
     // Recursion version Time (N) - Space (h) with H is the height of the Tree
     public static void invertBinaryTree(BinaryTree tree) {
         if (tree == null)
@@ -80,5 +85,32 @@ public class AlgoBinaryTree {
         curr.left = right;
         curr.right = left;
     }
+
+    // #endregion
+
+    // #region Max Path Sum In Binary Tree
+
+    // Recursion Space Time (N)
+    public static int maxPathSum(BinaryTree tree) {
+        return helperPathSum(tree, 0);
+    }
+
+    private static int helperPathSum(BinaryTree curr, int result) {
+        if (curr == null)
+            return 0;
+        if (curr.left == null && curr.right == null)
+            return curr.value;
+
+        int left = helperPathSum(curr.left, result);
+        int right = helperPathSum(curr.right, result);
+
+        if (left < right) {
+            result += right;
+            return curr.value + result;
+        }
+        result += left;
+        return curr.value + result;
+    }
+
     // #endregion
 }

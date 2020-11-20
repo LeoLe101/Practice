@@ -25,9 +25,9 @@ public class PreorderTraversal {
         return list;
     }
 
-    // Iterative version
+    // Iterative version this is also how we use for DFS
     // Space (N) Time (N)
-    public List<Integer> preorderTraversalIter(TreeNode node) {``
+    public List<Integer> preorderTraversalIter(TreeNode node) {
         // Result of current pre-order (meant to keep track left node)
         List<Integer> list = new LinkedList<Integer>();
         // Keep track of the right node of curr node
