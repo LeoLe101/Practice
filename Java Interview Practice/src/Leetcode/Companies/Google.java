@@ -7,43 +7,43 @@ public class Google {
     // #region --------------- 929. Unique Email Addresses ---------------
     // Got from LEETCODE Submission. This is the fastest solution yet
     public int numUniqueEmailsFastest(String[] emails) {
-        if(emails == null || emails.length == 0) return 0;
-        
+        if (emails == null || emails.length == 0)
+            return 0;
+
         Set<String> uniqueEmails = new HashSet();
-        
-        for(String email: emails) {
+
+        for (String email : emails) {
             uniqueEmails.add(formatEmail(email));
         }
         return uniqueEmails.size();
     }
-    
+
     private String formatEmail(String email) {
         int n = email.length();
         char[] formattedEmail = new char[n];
-        int readIdx = 0, 
-            writeIdx = 0;
+        int readIdx = 0, writeIdx = 0;
         char ch;
-        
-        while((ch = email.charAt(readIdx)) != '@') {
-            if(ch == '.') {
+
+        while ((ch = email.charAt(readIdx)) != '@') {
+            if (ch == '.') {
                 //
-            } else if(ch == '+') {
+            } else if (ch == '+') {
                 break;
             } else {
                 formattedEmail[writeIdx++] = ch;
             }
             readIdx++;
         }
-        
-        while((ch = email.charAt(readIdx)) != '@') {
+
+        while ((ch = email.charAt(readIdx)) != '@') {
             readIdx++;
         }
-        
-        while(readIdx < n) {
+
+        while (readIdx < n) {
             formattedEmail[writeIdx++] = email.charAt(readIdx);
             readIdx++;
         }
-        
+
         return new String(formattedEmail, 0, writeIdx);
     }
 
@@ -133,7 +133,14 @@ public class Google {
 
     // #endregion --------------- 929. Unique Email Addresses ---------------
 
-    // #region --------------- 929. Unique Email Addresses ---------------
+    // #region --------------- 1021. Remove Outermost Parentheses ---------------
 
-    // #endregion --------------- 929. Unique Email Addresses ---------------
+    public String removeOuterParentheses(String S) {
+        String result = "";
+        
+        return result;
+    }
+
+    // #endregion --------------- 1021. Remove Outermost Parentheses ---------------
+
 }
