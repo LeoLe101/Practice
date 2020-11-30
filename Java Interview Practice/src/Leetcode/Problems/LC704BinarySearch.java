@@ -1,6 +1,6 @@
 package src.Leetcode.Problems;
 
-public class BinarySearch704 {
+public class LC704BinarySearch {
 
     // Iteration version Space O(1), Time O(Log N)
     public int searchIterative(int[] nums, int target) {

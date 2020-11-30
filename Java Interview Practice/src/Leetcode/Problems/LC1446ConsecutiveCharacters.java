@@ -1,6 +1,6 @@
 package src.Leetcode.Problems;
 
-public class ConsecutiveCharacters1446 {
+public class LC1446ConsecutiveCharacters {
 
     // Space (1) Time (N)
     public int maxPower(String s) {

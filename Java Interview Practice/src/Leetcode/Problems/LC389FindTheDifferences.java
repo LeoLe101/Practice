@@ -3,7 +3,7 @@ package src.Leetcode.Problems;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FindTheDifferences {
+public class LC389FindTheDifferences {
     // First implementation
     public char findTheDifference(String s, String t) {
         Map<Character, Integer> charMap = new HashMap<Character, Integer>();
