@@ -2,7 +2,7 @@ package src.Leetcode.Linkedlist;
 
 import src.Util.ListNode;
 
-public class RemoveLLElements203 {
+public class LC203RemoveLLElements {
 
     // Space O(1), Time (N)
     public ListNode removeElements(ListNode head, int val) {

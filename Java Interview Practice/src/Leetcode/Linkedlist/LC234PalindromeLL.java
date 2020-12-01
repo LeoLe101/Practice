@@ -5,7 +5,7 @@ import java.util.List;
 
 import src.Util.ListNode;
 
-public class PalindromeLL {
+public class LC234PalindromeLL {
 
     // Space (N) Time (N)
     public boolean isPalindromeIter(ListNode head) {

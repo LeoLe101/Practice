@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import src.Util.ListNode;
 
-public class ReverseLL92 {
+public class LC92ReverseLL {
 
     public ListNode reverseBetween(ListNode head, int m, int n) {
         if (head != null)

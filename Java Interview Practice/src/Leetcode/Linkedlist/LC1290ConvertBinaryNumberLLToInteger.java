@@ -4,7 +4,7 @@ import java.util.Stack;
 
 import src.Util.ListNode;
 
-public class ConvertBinaryNumberLLToInteger1290 {
+public class LC1290ConvertBinaryNumberLLToInteger {
 
     // Space O(N) Time O(N) Not good
     // Using Stack

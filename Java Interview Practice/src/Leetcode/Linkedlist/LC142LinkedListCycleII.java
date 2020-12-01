@@ -3,7 +3,7 @@ package src.Leetcode.Linkedlist;
 import java.util.*;
 import src.Util.ListNode;
 
-public class LinkedListCycleII142 {
+public class LC142LinkedListCycleII {
 
     /**
      * Space and Time O(N), Unoptimized for space version

@@ -2,7 +2,7 @@ package src.Leetcode.Linkedlist;
 
 import src.Util.ListNode;
 
-public class DeleteNodeInLL237 {
+public class LC237DeleteNodeInLL {
     
     // Time + Space(1) Set curr node = next node value
     // Then shift the next node to the next next node (Unlink with the next next node of the curr node)

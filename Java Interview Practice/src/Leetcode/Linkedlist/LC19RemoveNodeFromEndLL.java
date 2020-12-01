@@ -3,7 +3,7 @@ package src.Leetcode.Linkedlist;
 import java.util.ArrayList;
 import src.Util.ListNode;
 
-public class RemoveNodeFromEndLL19 {
+public class LC19RemoveNodeFromEndLL {
 
     // BF, Space, Time (N)
     public ListNode removeNthFromEnd(ListNode head, int n) {

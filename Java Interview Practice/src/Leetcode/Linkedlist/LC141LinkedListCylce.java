@@ -3,7 +3,7 @@ package src.Leetcode.Linkedlist;
 import java.util.*;
 import src.Util.ListNode;
 
-public class LinkedListCylce141 {
+public class LC141LinkedListCylce {
 
     // Space and Time O(N)
     public boolean hasCycle(ListNode head) {

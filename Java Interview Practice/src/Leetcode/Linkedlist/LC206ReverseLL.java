@@ -2,7 +2,7 @@ package src.Leetcode.Linkedlist;
 
 import src.Util.ListNode;
 
-public class ReverseLL206 {
+public class LC206ReverseLL {
 
     // unoptimized
     public ListNode reverseList(ListNode head) {

@@ -3,7 +3,7 @@ package src.Leetcode.Linkedlist;
 import java.util.*;
 import src.Util.ListNode;
 
-public class IntersectionOfTwoLL160 {
+public class LC160IntersectionOfTwoLL {
 
     // Space, Time O(N), Not efficent
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {

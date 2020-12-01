@@ -2,7 +2,7 @@ package src.Leetcode.Linkedlist;
 
 import src.Util.ListNode;
 
-public class InsertionSortList147 {
+public class LC147InsertionSortList {
 
     // Space O(1) Time (N2)
     public ListNode insertionSortList(ListNode head) {
