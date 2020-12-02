@@ -19,6 +19,7 @@ public class LC104MaximumDepthOfBinaryTree {
     }
 
     // BFS with Queue - Find level of the Node
+    // Space (N) Time (N)
     public int maxDepthBFS(TreeNode root) {
         if (root == null) {
             return 0;
@@ -48,6 +49,7 @@ public class LC104MaximumDepthOfBinaryTree {
     }
 
     // DFS with Stack - Find Level of the Node
+    // Space (N) Time (N)
     public int maxDepthDFS(TreeNode root) {
         if (root == null)
             return 0;
@@ -61,17 +63,18 @@ public class LC104MaximumDepthOfBinaryTree {
         while (!s.isEmpty()) {
             TreeNode curr = s.pop();
             int currLevel = value.pop();
-            level = Math.max(currLevel, level);
+            level = Math.max(currLevel, level); // Check if the current level is more than the global level
+
+            // Add right first because Stack DS will pop Left before right if it is addded
             if (curr.right != null) {
                 s.push(curr.right);
-                value.push(currLevel + 1);
+                value.push(currLevel + 1); // Increase level by 1
             }
             if (curr.left != null) {
                 s.push(curr.left);
                 value.push(currLevel + 1);
             }
         }
-
         return level;
     }
 }
