@@ -1,0 +1,36 @@
+package src.Leetcode.Problems;
+
+public class LC242ValidAnagram {
+
+	// Space (N) Time (N)
+	public boolean isAnagram(String s, String t) {
+		int sLen = s.length();
+		int tLen = t.length();
+		String curr = sLen > tLen ? s : t;
+		String comp = sLen > tLen ? t : s;
+		Map<Character, Integer> m = new HashMap<>();
+
+		for (char c: comp.toCharArray()) {
+			if (m.containsKey(c)) {
+				m.put(c, m.getOrDefault(c, 0) + 1);
+			} else {
+				m.put(c, 1);
+			}
+		}
+
+		for (char c:.toCharArray()) {
+			if (m.containsKey(c)) {
+
+				if (m.get(c) <= 0) return false;
+
+				m.put(c, m.getOrDefault(c, 0) - 1);
+
+			} else {
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+}
