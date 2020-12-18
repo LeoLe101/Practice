@@ -7,19 +7,17 @@ public class LC122BestTimeToBuySellStockII {
 
 		int len = prices.length;
 		int ptr1 = 0;
-		int maxProfit = 0;
-		int currProfit = 0;
+		int maxProfit = 0, currProfit = 0, currStock = 0, prevStock = 0;
 
 		for (int ptr2 = 1; ptr2 < len; ptr2++) {
 			currStock = prices[ptr2];
 			prevStock = prices[ptr1];
 
-			if (currStock < prevStock) {
-				ptr1 = ptr2;
-			} else {
+			if (currStock > prevStock) {
 				currProfit = currStock - prevStock;
-				maxProfit = Math.max(maxProfit, currProfit);
+				maxProfit += currProfit;
 			}
+			ptr1 = ptr2;
 		}
 		return maxProfit;
 	}

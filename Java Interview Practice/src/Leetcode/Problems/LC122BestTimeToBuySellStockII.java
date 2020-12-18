@@ -2,6 +2,7 @@ package src.Leetcode.Problems;
 
 public class LC122BestTimeToBuySellStockII {
 
+	// Space (1) Times (N)
 	public int maxProfit(int[] prices) {
 		if (prices.length < 1) return 0;
 
@@ -22,4 +23,27 @@ public class LC122BestTimeToBuySellStockII {
 		return maxProfit;
 	}
 
+
+	// Greedt pair-wise
+	public int maxProfit2(int[] prices) {
+
+		int profit = 0, i = 0;
+
+		while (i <  prices.length) {
+		
+			// Find next local minimum
+			while (i < prices.length - 1 && prices[i+1] <= prices[i])
+				i++;
+
+			// Need increment to avoid infinite loop for '[1]'
+			int min = prices[i++];
+
+			// Find next local maximum
+			while (i < prices.length - 1 && prices[i + 1] >= prices[i])
+				i++;
+
+			profit += i < prices.length ? prices[i++] - min : 0;
+		}
+		return profit;
+	}
 }

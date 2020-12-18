@@ -5,7 +5,7 @@ public class LC108ConvertSortedArraytoBST {
 	public TreeNode sortedArrayToBST(int[] nums) {
 		int midIndx = 0 + ((nums.length - 1) - 0) / 2;
 
-		TreeNode root = new TreeNode(nums[midIndx ]);
+		TreeNode root = new TreeNode(nums[i]);
 
 		// Add all node from the left into the Tree
 		addNodeLeft(root, nums, midIndx - 1);
@@ -21,10 +21,10 @@ public class LC108ConvertSortedArraytoBST {
 
 		if (nums[rightIndex] < curr.val) {
 			curr.left = new TreeNode(nums[leftIndex]);
-			addNodeLeft(curr.left, nums, leftIndex--);
+			addNode(curr.left, nums, leftIndex--);
 		} else {
 			curr.right = new TreeNode(nums[leftIndex]);
-			addNodeLeft(curr.right, nums, leftIndex--);
+			addNode(curr.right, nums, leftIndex--);
 		}
 
 		return;
@@ -35,10 +35,10 @@ public class LC108ConvertSortedArraytoBST {
 
 		if (nums[rightIndex] < curr.val) {
 			curr.left = new TreeNode(nums[rightIndex]);
-			addNodeRight(curr.left, nums, rightIndex++);
+			addNode(curr.left, nums, rightIndex++);
 		} else {
 			curr.right = new TreeNode(nums[rightIndex]);
-			addNodeRight(curr.right, nums, rightIndex++);
+			addNode(curr.right, nums, rightIndex++);
 		}
 		
 		return;
