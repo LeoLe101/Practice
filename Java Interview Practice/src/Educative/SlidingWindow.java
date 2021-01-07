@@ -1,5 +1,10 @@
 package src.Educative;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import src.Util.ListNode;
 
 public class SlidingWindow {
@@ -110,10 +115,10 @@ public class SlidingWindow {
         // Loop through the window to find number > 'S'
         for (int windowEnd = 0; windowEnd < arr.length; windowEnd++) {
             windowSum += arr[windowEnd];
-
             // if the sum is more than 'S',
             // Shrink windowSize until the 'windowSum' < 'S'
-            while (windowSum >= S) {
+            while (windowSum >= S) { // Must be while to shrink all the possibilities down to get the most minimal
+                                     // values of the whole sum
                 minLength = Math.min(minLength, windowEnd - windowStart + 1);
                 windowSum -= arr[windowStart]; // remove the first element
                 windowStart++; // move window up
@@ -164,8 +169,127 @@ public class SlidingWindow {
 
     // #endregion
 
-    // #region 
-    
-    
-    // //#endregion
+    // #region Find longest substring within K distinct characters
+
+    // Space (K) Time (N) - K is the amount of character stored in map
+    public int findLength(String str, int k) {
+        int max = Integer.MIN_VALUE;
+        int start = 0;
+        Map<Character, Integer> m = new HashMap<>();
+
+        for (int end = 0; end < str.length(); end++) {
+            // Keep putting curr char into the map
+            char currChar = str.charAt(end);
+            m.put(currChar, m.getOrDefault(currChar, 0) + 1);
+
+            // Shrink down the map if char in map >= K
+            while (m.size() >= k) {
+                // Reduce from start till map only contain the right amount of char
+                char startChar = str.charAt(start);
+                m.put(startChar, m.get(startChar) - 1);
+                if (m.get(startChar) == 0) {
+                    m.remove(startChar);
+                }
+                start++;
+            }
+
+            // Set curr Max length
+            max = Math.max(max, end - start + 1);
+        }
+        return max;
+    }
+
+    // #endregion
+
+    // #region Find the maximum number of fruits in each basket (Fruits into
+    // Baskets)
+
+    // Space (N) - Time (N)
+    public int findLength(char[] arr) {
+        int len = arr.length;
+        int max = 0;
+        int start = 0;
+        Map<Character, Integer> m = new HashMap<>();
+
+        for (int end = 0; end < len; end++) {
+            char curr = arr[end];
+            m.put(curr, m.getOrDefault(curr, 0) + 1);
+
+            while (m.size() > 2) {
+                char leftChar = arr[start];
+                m.put(leftChar, m.get(leftChar) - 1);
+
+                if (m.get(leftChar) == 0)
+                    m.remove(leftChar);
+
+                start++;
+            }
+            max = Math.max(max, end - start + 1);
+        }
+        return max;
+    }
+
+    // #endregion
+
+    // #region Find the length of the longest substring which has no repeating
+    // characters
+
+    // Space (N) - Time (N)
+    public int findLengthOfSubStrWithNoRepeatChar(String str) {
+        int len = str.length();
+        int maxSub = 0;
+        int start = 0;
+        Map<Character, Integer> m = new HashMap<>();
+
+        for (int end = 0; end < len; end++) {
+            char curr = str.charAt(end);
+            m.put(curr, m.getOrDefault(curr, 0) + 1);
+
+            while (m.get(curr) > 1) {
+                char leftChar = str.charAt(start);
+                m.put(leftChar, m.get(leftChar) - 1);
+                if (m.get(leftChar) < 1) {
+                    m.remove(leftChar);
+                }
+                start++;
+            }
+            maxSub = Math.max(maxSub, end - start + 1);
+        }
+        return maxSub;
+    }
+
+    // Space (N) - Time (N)
+    // Faster run time, but takes more memory
+    public int findLengthOfSubStrWithNoRepeatChar2(String str) {
+        int start = 0, maxSub = 0, len = str.length();
+        Set<Character> s = new HashSet<>();
+
+        for (int end = 0; end < len; end++) {
+            char curr = str.charAt(end);
+
+            // Move the start ptr to the next index of the char already in the str
+            // ex: abcdec -> move start ptr to 'D' because C is already in Set
+            if (s.contains(curr)) {
+                while (start <= end) {
+                    char leftChar = str.charAt(start);
+                    if (leftChar == curr) {
+                        start++;
+                        break;
+                    }
+
+                    // Remove char along the way
+                    s.remove(leftChar);
+                    start++;
+                }
+
+            } else {
+                s.add(curr);
+                maxSub = Math.max(maxSub, s.size());
+            }
+        }
+
+    }
+
+    // #endregion
+
 }
