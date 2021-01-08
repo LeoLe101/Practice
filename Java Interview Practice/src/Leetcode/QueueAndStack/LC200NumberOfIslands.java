@@ -11,7 +11,7 @@ public class LC200NumberOfIslands {
 	public int numIslands(char[][] grid) {
 		int lenRow = grid.length;
 		int lenCol = grid[0].length;
-		boolean[][] visited = new boolean[][];
+		boolean[][] visited = new boolean[grid.length][grid[0].length];
 		int numberIsland = 0;
 		for (int i = 0; i < lenRow; i++) {
 			for (int j = 0; j < lenCol; j++) {
