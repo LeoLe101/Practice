@@ -1,5 +1,8 @@
 package src.Leetcode.Problems;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LC169MajorityElement {
 
 

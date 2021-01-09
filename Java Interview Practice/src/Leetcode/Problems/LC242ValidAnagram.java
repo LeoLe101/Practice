@@ -1,5 +1,9 @@
 package src.Leetcode.Problems;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public class LC242ValidAnagram {
 
 	// Space (N) Time (N)
@@ -18,7 +22,7 @@ public class LC242ValidAnagram {
 			}
 		}
 
-		for (char c:.toCharArray()) {
+		for (char c: curr.toCharArray()) {
 			if (m.containsKey(c)) {
 
 				if (m.get(c) <= 0) return false;
