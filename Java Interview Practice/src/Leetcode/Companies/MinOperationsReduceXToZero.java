@@ -2,6 +2,7 @@ package src.Leetcode.Companies;
 
 public class MinOperationsReduceXToZero {
 
+    // 1658. Minimum Operations to Reduce X to Zero
     public int minOperations(int[] nums, int x) {
         int len = nums.length;
         int result = 0;
@@ -12,37 +13,6 @@ public class MinOperationsReduceXToZero {
 
         while (left < right) {
 
-            int resLeft = x - nums[left];
-            int resRight = x - nums[right];
-
-            if (x == 0)
-                return result;
-
-            if (nums[left] > x && nums[right] > x) {
-                return -1;
-            }
-
-            if (nums[left] < x && nums[right] > x) {
-                left++;
-                result++;
-                x = resLeft;
-                continue;
-            }
-
-            if (nums[right] < x && nums[left] > x) {
-                right++;
-                result++;
-                x = resRight;
-                continue;
-            }
-
-            if (resLeft > resRight) {
-                left++;
-            } else {
-                right++;
-            }
-            x = Math.min(resLeft, resRight);
-            result++;
         }
 
         return -1;
