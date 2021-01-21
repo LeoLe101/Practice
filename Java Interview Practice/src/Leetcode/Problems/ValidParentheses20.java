@@ -1,5 +1,6 @@
 package src.Leetcode.Problems;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -45,6 +46,31 @@ public class ValidParentheses20 {
         }
 
         return top <= 0;
+    }
+
+    // Space (N) Time (N)
+    private boolean isValidRedo(String s) {
+        Stack<Character> stak = new Stack<>();
+        Map<Character, Character> m = new HashMap<Character, Character>();
+        m.put(')', '(');
+        m.put('}', '{');
+        m.put(']', '[');
+
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                stak.push(c);
+            } else {
+                if (stak.isEmpty())
+                    return false;
+
+                Character stackPop = stak.peek();
+                if (!stackPop.equals(m.get(c)) && !stak.isEmpty()) {
+                    return false;
+                }
+                stak.pop();
+            }
+        }
+        return stak.isEmpty();
     }
 
 }
