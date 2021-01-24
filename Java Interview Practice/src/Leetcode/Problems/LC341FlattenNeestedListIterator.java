@@ -28,36 +28,42 @@ public class LC341FlattenNeestedListIterator {
      */
 
     public interface NestedInteger {
+        public boolean isInteger();
 
+        public Integer getInteger();
+
+        public List<NestedInteger> getList();
     }
 
     public class NestedIterator implements Iterator<Integer> {
-        Deque<NestedInteger> stack = new ArrayDeque<>();
+
+        private List<NestedInteger> list;
+
         public NestedIterator(List<NestedInteger> nestedList) {
-            prepareStack(nestedList);
+            list = new LinkedList<NestedInteger>();
+            helper(nestedList);
         }
-    
+
         @Override
         public Integer next() {
-            if (!hasNext()) {
-                return null;
-            }
-            return stack.pop().getInteger();
+
         }
-    
+
         @Override
         public boolean hasNext() {
-            while (!stack.isEmpty() && !stack.peek().isInteger()) {
-                List<NestedInteger> list = stack.pop().getList();
-                prepareStack(list);
-            }
-            return !stack.isEmpty();
+
         }
-        
-        private void prepareStack(List<NestedInteger> nestedList) {
-            for (int i = nestedList.size() - 1; i >= 0; i--) {
-                stack.push(nestedList.get(i));
+
+        private void helper(List<NestedInteger> nestedList) {
+            for (NestedInteger i: nestedList) {
+                if (i.isInteger()) {
+                    list.add(i);
+                } else {
+
+                }
+
             }
+
         }
     }
 
