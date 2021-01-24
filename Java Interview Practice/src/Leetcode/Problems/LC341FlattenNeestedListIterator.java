@@ -38,32 +38,40 @@ public class LC341FlattenNeestedListIterator {
     public class NestedIterator implements Iterator<Integer> {
 
         private List<NestedInteger> list;
+        private int currPtr;
 
         public NestedIterator(List<NestedInteger> nestedList) {
+            currPtr = 0;
             list = new LinkedList<NestedInteger>();
             helper(nestedList);
         }
 
         @Override
         public Integer next() {
-
+            int temp = list.get(currPtr).getInteger();
+            if (currPtr < list.size())
+                currPtr++;
+            return temp;
         }
 
         @Override
         public boolean hasNext() {
-
+            return currPtr < list.size();
         }
 
         private void helper(List<NestedInteger> nestedList) {
-            for (NestedInteger i: nestedList) {
+            // Loop thru the list
+            for (NestedInteger i : nestedList) {
+                // if this element is an integer, add to list
                 if (i.isInteger()) {
                     list.add(i);
-                } else {
-
                 }
-
+                // Else, recur down and check all the element again
+                else {
+                    helper(i.getList());
+                }
             }
-
+            return;
         }
     }
 
