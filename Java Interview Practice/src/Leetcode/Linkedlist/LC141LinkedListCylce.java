@@ -5,7 +5,7 @@ import src.Util.ListNode;
 
 public class LC141LinkedListCylce {
 
-    // Space and Time O(N)
+    // Space(N) and Time O(N)
     public boolean hasCycle(ListNode head) {
         Set<ListNode> nodesSeen = new HashSet<>();
         while (head != null) {
@@ -20,7 +20,8 @@ public class LC141LinkedListCylce {
     }
 
 
-    // Best solution Time O(N) 
+    // Best solution Time O(N)
+    // 2 Ptrs Version
     // --- if no Cycle O(N)
     // --- if Cycle O(N + K) with K is some of the repeated nodes but this is also O(N)
     // Space O(1)

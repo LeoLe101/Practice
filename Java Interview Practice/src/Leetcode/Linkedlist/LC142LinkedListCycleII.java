@@ -6,7 +6,7 @@ import src.Util.ListNode;
 public class LC142LinkedListCycleII {
 
     /**
-     * Space and Time O(N), Unoptimized for space version
+     * Space (N) and Time O(N), Unoptimized for space version
      * 
      * @param head The start of the LL
      * @return The ListNode which is the starting of the cycle
@@ -21,10 +21,15 @@ public class LC142LinkedListCycleII {
             visited.add(node);
             node = node.next;
         }
-
         return null;
     }
 
+    // Space (1) - Time (N)
+    // 2 Ptrs to find the cycle meeting point first
+    // Then reset the 1st ptr to starting point of the LL
+    // 2nd ptr at the cycle meeting point
+    // Move both ptr 1 by 1 until they collided.
+    // The distance from 2 ptr and where they collideded will be the cycle begin
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null)
             return null;
@@ -48,7 +53,8 @@ public class LC142LinkedListCycleII {
         return left;
     }
 
-    // ------------------------------ LEETCODE SOLUTION --------------------------------
+    // ------------------------------ LEETCODE SOLUTION
+    // --------------------------------
     // Similar to the optimized version, but clean code
     private ListNode getIntersect(ListNode head) {
         ListNode tortoise = head;
