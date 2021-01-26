@@ -6,6 +6,7 @@ import java.util.HashSet;
  * Problem: Given the head of a Singly LinkedList, write a function to determine
  * if the LinkedList has a cycle in it or not.
  * 
+ * Space (1) - Time (N)
  */
 
 // #region ==== Personal Solution ====
@@ -60,6 +61,8 @@ class LinkedListCycleSolution {
 /**
  * Problem: Given the head of a Singly LinkedList, write a function to find the
  * length of the Cycle
+ * 
+ * Space (1) - Time (N)
  */
 
 // #region ==== Personal Solution ====
