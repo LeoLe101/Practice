@@ -1,21 +1,10 @@
-package src.Educative.FastSlowPointers;
+package src.Leetcode.Problems;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class HappyNumber {
+public class LC202HappyNumber {
 
-    /**
-     * Problem: Any number will be called a happy number if, after repeatedly
-     * replacing it with a number equal to the sum of the square of all of its
-     * digits, leads us to number ‘1’. All other (not-happy) numbers will never
-     * reach ‘1’. Instead, they will be stuck in a cycle of numbers which does not
-     * include ‘1’.
-     * 
-     * Space (1) - Time (Log N)
-     */
-
-    // #region ==== Personal Solution ====
     // Space (N) - Time (Log N)
     public boolean isHappy(int num) {
         int sum = num;
@@ -39,9 +28,7 @@ public class HappyNumber {
         }
         return false;
     }
-    // #endregion
 
-    // #region ---- EDUCATIVE Solution ----
     // Space(1) - Time (Log N) Solution from LinkedList Cycle idea
     // Because the faster value = double the slow value, it will certainly meet up
     // in the future somewhere. If that somewhere is 1, this is the happy number.
@@ -64,6 +51,5 @@ public class HappyNumber {
         }
         return sum;
     }
-    // #endregion
 
 }
