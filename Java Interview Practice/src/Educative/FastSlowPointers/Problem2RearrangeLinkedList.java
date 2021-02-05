@@ -1,5 +1,7 @@
 package src.Educative.FastSlowPointers;
 
+import src.Educative.ListNode;
+
 public class Problem2RearrangeLinkedList {
 
     /**
@@ -45,8 +47,8 @@ public class Problem2RearrangeLinkedList {
         }
         return prev;
     }
-    //#endregion
+    // #endregion
 
-    //#region ---- EDUCATIVE Solution ----
-    //#endregion
+    // #region ---- EDUCATIVE Solution ----
+    // #endregion
 }

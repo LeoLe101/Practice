@@ -38,26 +38,15 @@ function firstNotRepeatingCharacter(s) {
     return '_';
 }
 
-function firstNotRepeatingCharacterWithArrayApproach(str) {
-
-    let charArr = [];
-    let currChar;
-    
-    for (let i = 0; i < str.length; i++) {
-        currChar = s[i];
-        charArr[currChar]++;
-    }
-    
-    for (int i = 0; i < charArr.length; i++) {
-        if (charArr[i] == 1) {
-            currChar = (char) i;
-            return currChar; 
+const test = (nums,target) => {
+    let m = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        let targetNum = target - nums[i];
+        if (m.has(targetNum)) {
+            return [i, m.get(targetNum)];
+        } else {
+            m.set(nums[i], i);
         }
     }
-    
-    return '_';
-
-
-
-    return '_';
+    return [];
 }

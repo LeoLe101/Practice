@@ -1,4 +1,4 @@
-package src.Educative;
+package src.Educative.TwoPointers;
 
 import java.util.*;
 

@@ -1,5 +1,7 @@
 package src.Educative.FastSlowPointers;
 
+import src.Educative.ListNode;
+
 public class Problem1PalindromeLinkedList {
 
     // #region ==== Personal Solution ====
