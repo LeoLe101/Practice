@@ -33,7 +33,7 @@ public class LC986IntervalListIntersections {
             } else {
                 ptr2++;
             }
-        }
+    
         return result.toArray(new int[result.size()][2]);
     }
 
