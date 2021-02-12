@@ -12,9 +12,8 @@ public class FindMissingNumber {
 
     // Space (1) - Time (N)
     public int findMissingNumber(int[] nums) {
-        int result = -1;
         if (nums.length < 1)
-            return result;
+            return -1;
 
         int ptr = 0;
 
@@ -32,9 +31,9 @@ public class FindMissingNumber {
 
         // once sort everything. Loop again and find missing num
         for (int i = 0; i < nums.length; i++) {
-            if (i != nums[i])
+            if (i != nums[i]) return i;
         }
-        return result;
+        return -1;
     }
 
     private void swap(int[] nums, int first, int second) {

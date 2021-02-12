@@ -34,11 +34,11 @@ public class LC268MissingNumber {
 
     // Space (1) - Time (N)
     public int missingNumberOptimize(int[] nums) {
-        int missingNum = nums.length;
+        int missingNum = nums.length; // Catch the case [0,1] - which the missing number will be 2
 
         // Cal: len = len + index + nums[index]
         for (int i = 0; i < nums.length; i++) {
-            missingNum += i - nums[i];
+            missingNum += i - nums[i]; // if i and nums[i] have the same val, they will cancel out
         }
         return missingNum;
     }
