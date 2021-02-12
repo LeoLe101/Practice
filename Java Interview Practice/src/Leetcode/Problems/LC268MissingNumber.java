@@ -1,7 +1,5 @@
 package src.Leetcode.Problems;
 
-import java.util.Arrays;
-
 public class LC268MissingNumber {
 
     // Space (N) - Time (N)
