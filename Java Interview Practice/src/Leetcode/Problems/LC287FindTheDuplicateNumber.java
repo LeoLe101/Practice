@@ -1,26 +1,10 @@
-package src.Educative.CyclicSort;
+package src.Leetcode.Problems;
 
 import java.util.Arrays;
 
-public class FindTheDuplicateNumber {
+public class LC287FindTheDuplicateNumber {
 
-    /**
-     * Follow up questions: How can we prove that at least one duplicate number must
-     * exist in nums? - Put into a new array/map with the number value as key.
-     * Everytime the dup, increment the value at that index
-     * 
-     * Can you solve the problem without modifying the array nums? - Do total
-     * calculation
-     * 
-     * Can you solve the problem using only constant, O(1) extra space? Can you
-     * solve the problem with runtime complexity less than O(n2)?
-     * 
-     * @param nums
-     * @return
-     */
-
-    // Space (1) - Time (N Log N) - This will modify the array
-    public int findNumber(int[] nums) {
+    public int findDuplicate(int[] nums) {
         if (nums.length < 1)
             return -1;
 
@@ -82,30 +66,5 @@ public class FindTheDuplicateNumber {
             return slow;
         }
         return -1;
-    }
-
-    // Space (1) - Time (N)
-    public int findNumberCyclicSort(int[] nums) {
-        int i = 0;
-        while (i < nums.length) {
-            // Not correct index corresponding value, swap to correct index
-            if (nums[i] != i + 1) {
-                if (nums[i] != nums[nums[i] - 1])
-                    swap(nums, i, nums[i] - 1);
-                // If the index already has its corresponding value,
-                // it means this is a dup, return
-                else // we have found the duplicate
-                    return nums[i];
-            } else {
-                i++;
-            }
-        }
-        return -1;
-    }
-
-    private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
     }
 }
