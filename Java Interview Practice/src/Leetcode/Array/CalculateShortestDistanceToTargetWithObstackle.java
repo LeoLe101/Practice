@@ -2,20 +2,13 @@ package src.Leetcode.Array;
 
 import java.util.LinkedList;
 
-public class LC121BestTimeToBuySellStock {
-
-    // public int maxProfit(int[] prices) {
-    // int len = prices.length;
-    // int result = -1;
-    // int lowestPrice = Integer.MIN_VALUE;
-    // if (len < 1) {
-    // return result;
-    // }
-    // }
+public class CalculateShortestDistanceToTargetWithObstackle {
 
     /**
      * 
-     * O-- -XT ---
+     * O-- 
+     * -XT 
+     * ---
      * 
      * @param cityMap
      * @return
