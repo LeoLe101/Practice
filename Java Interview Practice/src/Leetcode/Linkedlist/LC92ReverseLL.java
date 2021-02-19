@@ -1,7 +1,5 @@
 package src.Leetcode.Linkedlist;
 
-import java.util.ArrayList;
-
 import src.Util.ListNode;
 
 public class LC92ReverseLL {
@@ -21,6 +19,7 @@ public class LC92ReverseLL {
         for (int i = 0; i < m - 1; i++) {
             preNode = preNode.next;
         }
+
 
         // Keep track of node at m-index and the next m-index node  
         currNode = preNode.next;
