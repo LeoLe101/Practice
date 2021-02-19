@@ -1,8 +1,8 @@
-package src.Leetcode.Problems;
+package src.Leetcode.BinaryTree;
 
 import src.Util.TreeNode;
 
-public class InorderSuccessorBST285 {
+public class LC285InorderSuccessorBST {
 
     // Not Finished
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {

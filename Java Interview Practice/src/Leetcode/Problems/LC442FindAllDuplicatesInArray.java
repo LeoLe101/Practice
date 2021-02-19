@@ -1,5 +1,6 @@
 package src.Leetcode.Problems;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LC442FindAllDuplicatesInArray {
