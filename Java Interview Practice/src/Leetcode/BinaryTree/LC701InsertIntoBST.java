@@ -1,8 +1,8 @@
-package src.Leetcode.Problems;
+package src.Leetcode.BinaryTree;
 
 import src.Util.TreeNode;
 
-public class InsertIntoBST701 {
+public class LC701InsertIntoBST {
 
     // Kinda Optimized but still not good as this is not clean code
     // Space and Time O(Log N) for best and O(N) for worst

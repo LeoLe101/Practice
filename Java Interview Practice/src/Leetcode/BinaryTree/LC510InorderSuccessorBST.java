@@ -1,8 +1,8 @@
-package src.Leetcode.Problems;
+package src.Leetcode.BinaryTree;
 
 import src.Util.Node;
 
-public class InorderSuccessorBST510 {
+public class LC510InorderSuccessorBST {
     public Node inorderSuccessor(Node node) {
         if (node.right != null)
             return TraverseDown(node.right);
