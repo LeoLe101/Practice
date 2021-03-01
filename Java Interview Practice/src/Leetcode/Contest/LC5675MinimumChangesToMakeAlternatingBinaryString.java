@@ -1,4 +1,4 @@
-package src.CompanyChallenge;
+package src.Leetcode.Contest;
 
 /**
  * LC5675MinimumChangesToMakeAlternatingBinaryString Nasdaq coding challange
