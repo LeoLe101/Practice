@@ -1,5 +1,8 @@
 package src.Leetcode.Problems;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LC268MissingNumber {
 
     // Space (N) - Time (N)
@@ -39,6 +42,18 @@ public class LC268MissingNumber {
             missingNum += i - nums[i]; // if i and nums[i] have the same val, they will cancel out
         }
         return missingNum;
+    }
+
+    // Space (N) - Time (N)
+    public int missingNumberTest(int[] nums) {
+      Set<Integer> s = new HashSet<>();
+      for (int i : nums) {
+        s.add(i);
+      }
+      for (int i = 0; i < nums.length; i++) {
+        if (!s.contains(i)) return i;
+      }
+      return nums.length;
     }
 
 }
