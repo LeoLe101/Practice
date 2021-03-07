@@ -1,4 +1,4 @@
-package src.Leetcode.Companies;
+package src.Leetcode.Companies.Google;
 
 import java.util.*;
 
@@ -137,7 +137,7 @@ public class Google {
 
     public String removeOuterParentheses(String S) {
         String result = "";
-        
+
         return result;
     }
 

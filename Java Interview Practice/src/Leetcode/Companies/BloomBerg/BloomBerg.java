@@ -1,4 +1,4 @@
-package src.Leetcode.Companies;
+package src.Leetcode.Companies.BloomBerg;
 
 public class BloomBerg {
 
