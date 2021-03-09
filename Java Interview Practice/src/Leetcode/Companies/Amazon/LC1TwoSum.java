@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class LC1TwoSum {
 
-    // Space () - Time ()
+    // Space (N) - Time (N)
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
         Map<Integer, Integer> m = new HashMap<>();
