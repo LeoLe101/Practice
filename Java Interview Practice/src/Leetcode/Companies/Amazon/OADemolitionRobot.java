@@ -26,8 +26,9 @@ public class OADemolitionRobot {
   }
 
   // hint: Treat coordinate as TreeNode like previous assignment
-  private int[][] dirs = new int[] { { 1, 0 }, { 0, -1 }, { 0, 1 }, { -1, 0 } };
+  private int[][] dirs = new int[][] { { 1, 0 }, { 0, -1 }, { 0, 1 }, { -1, 0 } };
 
+  // Space (N * M) - Time (N * M)
   private int minimumPath(int[][] grid) {
     if (grid.length < 1 || grid[0].length < 1)
       return -1;
