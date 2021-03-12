@@ -7,25 +7,23 @@ import java.util.Queue;
 
 import src.Util.TreeNode;
 
-public class BinaryTreeLevelOrder {
+public class ZigzagTraversal {
 
-  // Space (N) - Time (N): N is the total number of nodes in the tree
-  // Need Space (N) because we can need to keep track an N nodes in both queue and
-  // result list.
+  // Space (N) - Time (N)
   public List<List<Integer>> traverse(TreeNode root) {
+    List<List<Integer>> result = new ArrayList<>();
 
     if (root == null)
-      return new ArrayList<>();
+      return result;
 
-    List<List<Integer>> result = new ArrayList<>();
     Queue<TreeNode> q = new LinkedList<>();
     q.offer(root);
-
     int size = 0;
+    int level = 1; // or boolean isLeftToRight = true;
 
     while (!q.isEmpty()) {
       size = q.size();
-      List<Integer> currLevel = new ArrayList<>();
+      ArrayList<Integer> currLvl = new ArrayList<>();
 
       for (int i = 0; i < size; i++) {
         TreeNode curr = q.poll();
@@ -38,15 +36,17 @@ public class BinaryTreeLevelOrder {
           q.offer(curr.right);
         }
 
-        currLevel.add(curr.val);
+        if (level % 2 == 0) { // or if (!isLeftToRight) {
+          currLvl.add(0, curr.val);
+        } else {
+          currLvl.add(curr.val);
+        }
       }
-      result.add(currLevel);
+      result.add(currLvl);
+      level++; // or isLeftToRight = !isLeftToRight;
     }
+
     return result;
   }
 
-  // Q:
-  // size: 2
-  // CurrLevl [15, 7]
-  // result [3], [9, 20], [15, 7]
 }

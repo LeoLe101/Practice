@@ -7,7 +7,7 @@ import java.util.Queue;
 
 import src.Util.TreeNode;
 
-public class BinaryTreeZigZagLevelTraversal {
+public class LC103BinaryTreeZigZagLevelTraversal {
 
     // Space (N) - Time (N) DFS Version
     public List<List<Integer>> zigzagLevelOrderRecur(TreeNode root) {

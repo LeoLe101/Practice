@@ -7,28 +7,30 @@ import java.util.Queue;
 
 import src.Util.TreeNode;
 
-public class BinaryTreeLevelOrder {
+public class ReverseLevelOrderTraversal {
 
-  // Space (N) - Time (N): N is the total number of nodes in the tree
-  // Need Space (N) because we can need to keep track an N nodes in both queue and
-  // result list.
+  // Space (N) - Time (N): Similar to the Binary Level Order 
+  // but instead of adding the new array at the last 
+  // of the result, now add at the front
   public List<List<Integer>> traverse(TreeNode root) {
 
-    if (root == null)
-      return new ArrayList<>();
-
     List<List<Integer>> result = new ArrayList<>();
+    if (root == null)
+      return result;
+
     Queue<TreeNode> q = new LinkedList<>();
     q.offer(root);
 
     int size = 0;
 
     while (!q.isEmpty()) {
+
       size = q.size();
       List<Integer> currLevel = new ArrayList<>();
 
       for (int i = 0; i < size; i++) {
         TreeNode curr = q.poll();
+        currLevel.add(curr.val);
 
         if (curr.left != null) {
           q.offer(curr.left);
@@ -37,16 +39,11 @@ public class BinaryTreeLevelOrder {
         if (curr.right != null) {
           q.offer(curr.right);
         }
-
-        currLevel.add(curr.val);
       }
-      result.add(currLevel);
+
+      result.add(0, currLevel);
     }
     return result;
   }
 
-  // Q:
-  // size: 2
-  // CurrLevl [15, 7]
-  // result [3], [9, 20], [15, 7]
 }
