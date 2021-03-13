@@ -10,8 +10,7 @@ import src.Util.TreeNode;
 public class BinaryTreeLevelOrder {
 
   // Space (N) - Time (N): N is the total number of nodes in the tree
-  // Need Space (N) because we can need to keep track an N nodes in both queue and
-  // result list.
+  // Space (N) because we can need to keep track the maximum N nodes in each level
   public List<List<Integer>> traverse(TreeNode root) {
 
     if (root == null)
