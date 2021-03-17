@@ -1,0 +1,15 @@
+Big System Design GitHub:
+https://github.com/donnemartin/system-design-primer
+
+
+Amazon:
+https://www.codercrunch.com/topic/357819737/amazon-software-engineering-interview-process
+
+1. How would you design a warehouse system for Amazon.com
+2. How would you desing Amazon.com so it handle 10x traffice than today
+3. How would you desing Amazon.com's database (Customers, Orders, Products)
+4. How would you design Google's search auto complete
+5. How would you design Dropbox
+6. How would you design a real time ranking system for Fortnite
+7. How would you design a parking payment system
+8. How would you design an electronic voting system
