@@ -14,7 +14,7 @@ import java.util.Set;
  * 3 5 4 5 9 10 3" => 0
  * 
  */
-public class FindFirstDuplicateElement {
+public class FindFirstDuplicateElementWithMinimalIndex {
 
     /**
      * Space (1) 
