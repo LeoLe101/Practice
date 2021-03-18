@@ -16,24 +16,17 @@ public class LC79WordSearch {
     if (word.length() < 1 || board.length < 1 || board[0].length < 1)
       return false;
 
-    int wordIndx = 0;
-    char[] charArr = word.toCharArray();
-    Queue<int[]> q = new LinkedList<>();
-    q.offer(new int[] {0, 0});
-
-    while (!q.isEmpty()) {
-      int[] loc = q.poll();
-      char curr = board[loc[0]][loc[1]];
-
-      if (curr != charArr[wordIndx]) {
-        for (int i = 0; i < dirs.length; i++) {
-
-        }
+    boolean[][] visited = new boolean[board.length][board[0].length];
+    for (int i = 0; i < board.length; i++) {
+      for (int j = 0; j < board.length; j++) {
+        if (dfs())
+          return true;
       }
-
     }
-
     return false;
   }
 
+  private boolean dfs(char[][] board, boolean[][] visited, String word, int i, int j, int wordIndex) {
+
+  }
 }
