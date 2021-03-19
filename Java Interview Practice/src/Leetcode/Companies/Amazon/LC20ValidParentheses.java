@@ -45,6 +45,25 @@ public class LC20ValidParentheses {
 
         return stack.isEmpty();
     }
+
+    public boolean isValidShortCleanVersion(String s) {
+        Stack<Character> stack = new Stack<Character>();
+        for (char c : s.toCharArray()) {
+            // Add all closing bracket
+            if (c == '(')
+                stack.push(')');
+            else if (c == '{')
+                stack.push('}');
+            else if (c == '[')
+                stack.push(']');
+
+            // Once this is the closing bracket, check if stack empty or this is the
+            // expected bracket
+            else if (stack.isEmpty() || stack.pop() != c)
+                return false;
+        }
+        return stack.isEmpty();
+    }
 }
 
 class Solution {
