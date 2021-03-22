@@ -48,22 +48,39 @@ public class LC242ValidAnagram {
 		return Arrays.equals(arrS, arrT);
 	}
 
-	// Space (1) Time (N Log N)
-	public boolean isAnagram3(String s, String t) {
+    /**
+     * Space (1) - Since we know how much we need to keep 26 chars
+     * Time (N) - Traverse thru each string once
+     */
+    public boolean isAnagramArr(String s, String t) {
+        // Only need 26 because the range in ASCII table 
+        // for lowercase a to z is 97 to 122
+        int[] alphabet = new int[26];
 
-		int[] alphabet = new int[26];
-		for (char c: s.toCharArray()) {
-			alphabet[c - 'a']++;
-		}
-		
-		for (char c: t.toCharArray()) {
-			alphabet[c - 'a']--;
-		}
+        /**
+         * Put all char of string s into the arr.
+         * The index utilize the distance from current character in string s to 'a' char.
+         * By substract to 'a', it will return the index of this char from 'a' 
+         * EX: 'a' - 'a' = 0 (97 - 97 = 0 - in ASCII table) 
+         *     'v' - 'a' = 21 (118 - 97 = 21)
+         */
+        for (int i = 0; i < s.length(); i++)
+            alphabet[s.charAt(i) - 'a']++;
+        
+        // Subtract from what've been added from prev string s
+        for (int i = 0; i < t.length(); i++) {
+            alphabet[t.charAt(i) - 'a']--;
 
-		for (int i : alphabet) {
-			if (i != 0) return false;
-		}
+            // Stop once if string t has more of this char than string s
+            if (alphabet[t.charAt(i) - 'a'] < 0)
+                return false;
+        }
 
-		return true;
-	}
+        // Check all alphabet if string s has more char that t doesn't have
+        for (int i : alphabet)
+            if (i != 0)
+                return false;
+
+        return true;
+    }
 }
