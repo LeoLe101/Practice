@@ -1,8 +1,5 @@
 package src.Leetcode.Companies.Amazon;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class LC62UniquePaths {
 
   // Space (N * M) because we need to keep track all the vals in each cell of the
