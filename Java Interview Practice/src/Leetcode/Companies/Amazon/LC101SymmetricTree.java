@@ -10,6 +10,6 @@ public class LC101SymmetricTree {
      * Time ()
      */
     public boolean isSymmetric(TreeNode root) {
-        
+
     }
 }

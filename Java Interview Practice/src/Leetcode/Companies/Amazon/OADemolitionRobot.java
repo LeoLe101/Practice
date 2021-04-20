@@ -20,38 +20,35 @@ public class OADemolitionRobot {
    * Ex: - Input : [1, 0, 0], [1, 0, 0], [1, 9, 1]] - Output : 3
    */
 
-  // Space (N * M) - Time (N * M)
-  public int distanceTraversed(List<List<Integer>> lot) {
-
-  }
-
   // hint: Treat coordinate as TreeNode like previous assignment
   private int[][] dirs = new int[][] { { 1, 0 }, { 0, -1 }, { 0, 1 }, { -1, 0 } };
 
   // Space (N * M) - Time (N * M)
-  private int minimumPath(int[][] grid) {
+  public int minimumPath(int[][] grid) {
     if (grid.length < 1 || grid[0].length < 1)
       return -1;
-    int result = -1;
 
-    // start from(0, 0), perform BFS
     Queue<int[]> q = new LinkedList<>();
     q.offer(new int[] { 0, 0 });
     Set<String> visited = new HashSet<>();
     int res = 0;
+
     while (!q.isEmpty()) {
       int size = q.size();
+
       for (int i = 0; i < size; i++) {
         int[] cur = q.poll();
         if (grid[cur[0]][cur[1]] == 9)
           return res;
+
         if (visited.contains(encode(cur[0], cur[1])))
           continue;
         visited.add(encode(cur[0], cur[1]));
-        for (int j = 0; j < 3; j++) {
+
+        for (int j = 0; j < 4; j++) {
           int newx = cur[0] + dirs[j][0];
           int newy = cur[1] + dirs[j][1];
-          if (!isValid(newx, newy))
+          if (!isValid(newx, newy, grid.length, grid[0].length, grid))
             continue;
           q.offer(new int[] { newx, newy });
         }
@@ -61,12 +58,11 @@ public class OADemolitionRobot {
     return -1;
   }
 
-  public boolean isValid(int x, int y, int m, int n) {
-    return x >= 0 && x < m && y >= 0 && y < n;
+  public boolean isValid(int x, int y, int m, int n, int[][] grid) {
+    return x >= 0 && x < m && y >= 0 && y < n && grid[x][y] != 0;
   }
 
   public String encode(int x, int y) {
     return "(" + x + "," + y + ")";
   }
-
 }
