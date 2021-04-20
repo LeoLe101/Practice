@@ -75,9 +75,6 @@ public class LC200NumberOfIslands {
 				// this location is land
 				if (grid[i][j] == '1') {
 					dfsTest(grid, i, j);
-
-					// Everytime finished counting all the island from this curr location, increase
-					// island count
 					result++;
 				}
 			}
@@ -90,10 +87,8 @@ public class LC200NumberOfIslands {
 		if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == '0') {
 			return;
 		}
-
 		// Change island to water (1 -> 0) for later backtrack
 		grid[i][j] = '0';
-
 		// Move and test 4 dif dirs from curr location
 		dfsTest(grid, i + 1, j);
 		dfsTest(grid, i - 1, j);
