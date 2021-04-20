@@ -16,7 +16,8 @@ public class Problem1MinimumMeetingRooms {
         Collections.sort(meetings, (a, b) -> Integer.compare(a.start, b.start));
 
         // Use priority queue to keep the min ending time of each meeting
-        PriorityQueue<Meeting> pq = new PriorityQueue<>(meetings.size(), (a, b) -> Integer.compare(a.end, b.end));
+        PriorityQueue<Meeting> pq = new PriorityQueue<>(meetings.size(), 
+          (a, b) -> Integer.compare(a.end, b.end));
         int roomsNeeded = 0;
 
         for (Meeting m : meetings) {

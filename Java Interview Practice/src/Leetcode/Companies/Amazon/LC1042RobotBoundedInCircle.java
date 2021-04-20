@@ -12,7 +12,6 @@ public class LC1042RobotBoundedInCircle {
     public boolean isRobotBounded(String instructions) {
         int[] pos = new int[] { 0, 0 };
         int[][] dirs = new int[][] { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
-        int x = 0, y = 0, i = 0, d[][] = {{0, 1}, {1, 0}, {0, -1}, { -1, 0}};
         int dir = 0; // 0: Up - 1: Right - 2: Down - 3: Left
 
         for (char c : instructions.toCharArray()) {
