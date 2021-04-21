@@ -11,12 +11,19 @@ public class OASignOfAnArrayProduct {
      */
     public int findProductSign(int[] array) {
         if (array.length < 1) return 0;
+        int counter = 0;
 
+        // Count the amount of negative number
         for (int i: array) {
-
+            // If the array has 0, return 0 since it will be 0 once multiplied
+            if (i == 0)
+                return 0;
+            
+            if (i < 0) 
+                counter++;
         }
 
-
-
+        // If the counter is even number, means negative number cancel out
+        return counter % 2 == 0 ? 1 : -1;
     }
 }
