@@ -4,7 +4,10 @@ import java.util.Arrays;
 
 public class LC88MergeSortedArray {
 
-    // Space () - Time ()
+    /**
+     * Space ()
+     * Time ()
+     */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
 
         int len1 = nums1.length;
